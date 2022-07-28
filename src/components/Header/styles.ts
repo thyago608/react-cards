@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   background: #111;
+
+  @media (min-width: 768px) {
+    margin-top: 1rem;
+  }
 `;
 
 type ContentProps = {
@@ -21,11 +25,17 @@ export const Content = styled.div<ContentProps>`
 `;
 
 export const Logo = styled.a`
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: #fff;
+  position: relative;
+
+  width: 50px;
+  height: 50px;
 
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    width: 70px;
+    height: 70px;
+  }
 `;
 
 export const User = styled.div`

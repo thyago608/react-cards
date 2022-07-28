@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 
   label {
     color: #d1d1d1;
@@ -21,5 +21,10 @@ export const Container = styled.div`
 
     color: #d1d1d1;
     font-size: 1.2rem;
+
+    &::placeholder {
+      color: #d1d1d1;
+      font-size: 1rem;
+    }
   }
 `;

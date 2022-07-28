@@ -1,16 +1,18 @@
 import { Input } from "components/Input";
-import { Container, Form } from "styles/home";
+import { Button } from "components/Button";
+import { Container } from "styles/home";
 
 export default function Home() {
     return (
         <Container>
-            <Form>
+            <form>
                 <Input
                     type="text"
                     name="name"
-                    label="Digite o seu nome"
+                    placeholder="Digite o seu nome"
                 />
-            </Form>
+                <Button text="Ver cartas" />
+            </form>
         </Container>
     );
 }
