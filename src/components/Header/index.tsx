@@ -6,7 +6,7 @@ import { Container, Logo, Content, User } from "./styles";
 export function Header() {
     const { asPath } = useRouter();
 
-    const hasUser = asPath.startsWith('/users');
+    const hasUser = asPath.startsWith('/dashboard');
 
     return (
         <Container>

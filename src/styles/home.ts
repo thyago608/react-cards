@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
+  margin-bottom: 9rem;
+
   form {
     margin-top: 8rem;
 

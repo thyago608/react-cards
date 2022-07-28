@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const Container = styled.header`
   background: #111;
 
+  position: sticky;
+  top: 0;
+
+  z-index: 2;
+
   @media (min-width: 768px) {
     margin-top: 1rem;
   }
