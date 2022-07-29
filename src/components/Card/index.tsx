@@ -16,7 +16,8 @@ export function Card({ card }: CardProps) {
                 </ContainerImage>
                 <LogoCard
                     point={card.point}
-                    style={{ top: 10, left: 10 }} />
+                    style={{ top: 10, left: 10 }}
+                />
                 <LogoCard
                     style={{ bottom: 2, right: 10 }}
                     point={card.point}

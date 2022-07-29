@@ -7,9 +7,10 @@ type LogoCardProps = HTMLAttributes<HTMLDivElement> & {
     rotate?: boolean;
 };
 
-export function LogoCard({ point, rotate = false, ...rest }: LogoCardProps) {
+export function LogoCard({ rotate = false, point, ...rest }: LogoCardProps) {
+
     return (
-        <Container {...rest} rotate={rotate}>
+        <Container toSpin={rotate} {...rest} >
             <span>{point}</span>
             <div>
                 <Image src="/baralho.png" layout="fill" />

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 type Props = {
-  rotate: boolean;
+  toSpin: boolean;
 };
 
 export const Container = styled.div<Props>`
@@ -11,12 +11,6 @@ export const Container = styled.div<Props>`
   flex-direction: column;
   align-items: center;
 
-  ${(props) =>
-    props.rotate &&
-    css`
-      transform: rotate(180deg);
-    `}
-
   > div {
     position: relative;
 
@@ -25,7 +19,13 @@ export const Container = styled.div<Props>`
   }
 
   span {
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: #e33434;
   }
+
+  ${(props) =>
+    props.toSpin &&
+    css`
+      transform: rotate(180deg);
+    `}
 `;

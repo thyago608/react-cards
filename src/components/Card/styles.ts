@@ -14,7 +14,7 @@ const animation = keyframes`
 
 export const Container = styled.div`
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
-  background: #fff;
+  background: white;
   border-radius: 0.5rem;
 
   width: 260px;
@@ -57,4 +57,6 @@ export const Description = styled.p`
   margin-top: 0.5rem;
   font-size: 0.9rem;
   text-align: center;
+
+  width: 80%;
 `;

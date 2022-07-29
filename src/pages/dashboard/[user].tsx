@@ -1,51 +1,38 @@
-import { useState, } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import { Card } from "components/Card";
 import { Container, CardList, ContainerButtons } from "styles/dashboard";
 import { Button } from "components/Button";
 import { Card as CardType } from "types/card";
-import { ErrorResponse } from "pexels";
+import { ToastContainer } from "react-toastify";
 import { GetServerSideProps } from "next";
 import { pexels } from "services/pexels";
+import { api } from "services/api";
 import { PhotoPexelsUpdated } from "types/pexels";
+import { toastErrorVisible } from "lib/toast";
 
 type DashboardProps = {
     cards: CardType[];
     nextPage: number;
-    error: ErrorResponse;
+    error: boolean;
 }
 
 export default function User({ cards, nextPage, error }: DashboardProps) {
     const [page, setPage] = useState(nextPage);
     const [items, setItems] = useState(cards);
+    const [failed, setFailed] = useState(error);
 
     async function handleMoreCard() {
-        const query = "On Top Of The World";
-
-        const response = await pexels.photos.search({ query, page, per_page: 5 });
-
-        if ("photos" in response) {
-            const photosLength = response.photos.length > 0 ? response.photos.length : 0;
-
-            if (photosLength > 0) {
-                const card = response.photos.map((photo: PhotoPexelsUpdated) => {
-                    return {
-                        id: photo.id,
-                        title: photo.photographer,
-                        image: photo.src.large2x,
-                        description: String(photo.alt),
-                        point: Math.floor(Math.random() * 10 + 1)
-                    }
-                });
-
-                card.splice(1, card.length);
-
-                setItems([...items, ...card]);
-                setPage(page + 1);
+        const { data } = await api.get('/search', {
+            params: {
+                page,
             }
-        }
-    }
+        });
 
+        setItems([...items, data.card]);
+        setPage(page + 1);
+        setFailed(data.error)
+    }
 
     function handleSortCards() {
         const sortedArray = items.sort((a, b) => {
@@ -56,27 +43,36 @@ export default function User({ cards, nextPage, error }: DashboardProps) {
         })
         setItems([...sortedArray]);
     }
+
+    useEffect(() => {
+        if (failed) {
+            toastErrorVisible("Ops, houve um problema no servidor");
+        }
+    }, [failed])
+
     return (
         <>
             <Head>
                 <title>Dashboard | ReactCards</title>
             </Head>
             <Container>
+                {failed &&
+                    <ToastContainer />
+                }
                 <CardList>
-                    {items.map(card => (
+                    {items.length > 0 && items.map(card => (
                         <Card key={card.id} card={card} />
                     ))}
                 </CardList>
                 <ContainerButtons>
                     <Button
                         text="Puxar mais cartas"
-                        color="rgba(255, 0, 34, 0.8)"
                         onClick={handleMoreCard}
                     />
                     <Button
                         text="Embaralhar cartas"
-                        color="rgb(7, 119, 34, 1)"
                         onClick={handleSortCards}
+                        color="#0821c2"
                     />
                 </ContainerButtons>
             </Container>
@@ -85,10 +81,10 @@ export default function User({ cards, nextPage, error }: DashboardProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const query = 'On Top Of The World';
+    const query = 'lion';
 
     let cards: CardType[] = [];
-    let error = { message: '' };
+    let error = false;
     let nextPage = 1;
 
     try {
@@ -112,7 +108,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         }
 
     } catch (e) {
-        error.message = 'Your Request Failed';
+        error = true;
     }
 
     return {
