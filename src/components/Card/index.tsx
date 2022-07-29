@@ -1,13 +1,9 @@
 import Image from "next/image";
+import { Card as CardType } from "types/card";
 import { Container, Content, ContainerImage, Title, Description } from "./styles";
 
 type CardProps = {
-    card: {
-        image?: string;
-        name: string;
-        description: string;
-        value: number;
-    }
+    card: CardType;
 };
 
 export function Card({ card }: CardProps) {
@@ -15,9 +11,9 @@ export function Card({ card }: CardProps) {
         <Container>
             <Content>
                 <ContainerImage>
-                    <Image src="/baralho.png" alt="baralho" layout="fill" />
+                    <Image src={card.image} alt={card.description} layout="fill" />
                 </ContainerImage>
-                <Title>{card.name}</Title>
+                <Title>{card.title}</Title>
                 <Description>{card.description}</Description>
             </Content>
         </Container>

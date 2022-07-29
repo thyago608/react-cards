@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import Head from "next/head";
+import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { Input } from "components/Input";
 import { Button } from "components/Button";
@@ -29,7 +29,6 @@ export default function Home() {
             router.push(`/dashboard/${name}`);
             return;
         }
-
         toastErrorVisible();
     }
 
