@@ -3,4 +3,5 @@ export type Card = {
   title: string;
   image: string;
   description: string;
+  point: number;
 };
