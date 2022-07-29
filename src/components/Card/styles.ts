@@ -4,7 +4,7 @@ export const Container = styled.div`
   min-width: 240px;
   height: 240px;
   border-radius: 0.3rem;
-  background: rgba(130, 87, 229, 0.65);
+  background: rgba(72, 99, 247, 0.3);
 `;
 
 export const Content = styled.div`

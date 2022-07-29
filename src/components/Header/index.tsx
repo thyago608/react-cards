@@ -4,9 +4,10 @@ import Link from "next/link";
 import { Container, Logo, Content, User } from "./styles";
 
 export function Header() {
-    const { asPath } = useRouter();
+    const { asPath, query } = useRouter();
 
     const hasUser = asPath.startsWith('/dashboard');
+    const { user } = query;
 
     return (
         <Container>
@@ -18,7 +19,7 @@ export function Header() {
                 </Link>
                 {hasUser &&
                     <User>
-                        <strong>Thyago Ribeiro</strong>
+                        <strong>{user}</strong>
                     </User>}
             </Content>
         </Container>

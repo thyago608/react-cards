@@ -17,7 +17,8 @@ export const Container = styled.div`
     border-radius: 0.3rem;
 
     background: none;
-    border: 2px solid #8257e5;
+
+    border: 1px solid #757575;
 
     color: #d1d1d1;
     font-size: 1.2rem;

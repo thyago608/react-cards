@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Card } from "components/Card";
-import { Container, CardList } from "styles/dashboard";
+import { Container, CardList, ContainerButtons } from "styles/dashboard";
+import { Button } from "components/Button";
 
 export default function User() {
     return (
@@ -39,6 +40,16 @@ export default function User() {
                         value: 2
                     }} />
                 </CardList>
+                <ContainerButtons>
+                    <Button
+                        text="Puxar mais cartas"
+                        color="rgba(255, 0, 34, 0.8)"
+                    />
+                    <Button
+                        text="Embaralhar cartas"
+                        color="rgb(7, 119, 34, 1)"
+                    />
+                </ContainerButtons>
             </Container>
         </>
     );

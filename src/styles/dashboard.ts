@@ -26,3 +26,11 @@ export const CardList = styled.section`
   @media (min-width: 1440px) {
   }
 `;
+
+export const ContainerButtons = styled.section`
+  margin-top: 3rem;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+`;
