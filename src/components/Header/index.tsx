@@ -13,14 +13,12 @@ export function Header() {
         <Container logged={!!user} >
             <Content logged={!!user} >
                 <Logo logged={!!user}>
-                    <Link href="/">
-                        <div>
-                            <Image src="/baralho.png"
-                                width={60}
-                                height={60}
-                                alt="baralho" />
-                        </div>
-                    </Link>
+                    <div>
+                        <Image src="/baralho.png"
+                            width={60}
+                            height={60}
+                            alt="baralho" />
+                    </div>
                     {!hasUser && <h2>ReactCards</h2>}
                 </Logo>
                 {hasUser &&

@@ -33,7 +33,6 @@ export const Logo = styled.div<Props>`
     css`
       margin-top: 3rem;
     `}
-  cursor: pointer;
 
   display: flex;
   flex-direction: column;
