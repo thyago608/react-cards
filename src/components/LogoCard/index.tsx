@@ -13,7 +13,7 @@ export function LogoCard({ rotate = false, point, ...rest }: LogoCardProps) {
         <Container toSpin={rotate} {...rest} >
             <span>{point}</span>
             <div>
-                <Image src="/baralho.png" layout="fill" />
+                <Image src="/baralho.png" layout="fill" alt="baralho" />
             </div>
         </Container>
     );
