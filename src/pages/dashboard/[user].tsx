@@ -8,8 +8,9 @@ import { ToastContainer } from "react-toastify";
 import { GetServerSideProps } from "next";
 import { pexels } from "services/pexels";
 import { api } from "services/api";
+import { numbersRandom } from "utils/generateList";
 import { PhotoPexelsUpdated } from "types/pexels";
-import { toastErrorVisible } from "lib/toast";
+import { toastErrorVisible } from "utils/toast";
 
 type DashboardProps = {
     cards: CardType[];
@@ -21,17 +22,21 @@ export default function User({ cards, nextPage, error }: DashboardProps) {
     const [page, setPage] = useState(nextPage);
     const [items, setItems] = useState(cards);
     const [failed, setFailed] = useState(error);
+    const [numberOfRequests, setNumberOfRequests] = useState(0);
 
     async function handleMoreCard() {
-        const { data } = await api.get('/search', {
-            params: {
-                page,
-            }
-        });
+        if (numberOfRequests < 3) {
+            const { data } = await api.get('/search', {
+                params: {
+                    page,
+                }
+            });
 
-        setItems([...items, data.card]);
-        setPage(page + 1);
-        setFailed(data.error)
+            setItems([...items, data.card]);
+            setPage(page + 1);
+            setFailed(data.error)
+            setNumberOfRequests(numberOfRequests + 1);
+        }
     }
 
     function handleSortCards() {
@@ -68,6 +73,9 @@ export default function User({ cards, nextPage, error }: DashboardProps) {
                     <Button
                         text="Puxar mais cartas"
                         onClick={handleMoreCard}
+                        style={{
+                            cursor: numberOfRequests === 3 ? "not-allowed" : "pointer"
+                        }}
                     />
                     <Button
                         text="Embaralhar cartas"
@@ -81,20 +89,21 @@ export default function User({ cards, nextPage, error }: DashboardProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const query = 'lion';
+    const query = 'animals';
 
     let cards: CardType[] = [];
     let error = false;
-    let nextPage = 1;
+
+    const page = Math.floor(Math.random() * 20 + 1);
+    let nextPage = page + 1;
 
     try {
-        const response = await pexels.photos.search({ query, per_page: 5 });
+        const response = await pexels.photos.search({ query, page, per_page: 5 });
 
         if ("photos" in response) {
             const photosLength = response.photos.length > 0 ? response.photos.length : 0;
 
             if (photosLength > 0) {
-                nextPage = response.page + 1;
                 cards = response.photos.map((photo: PhotoPexelsUpdated) => {
                     return {
                         id: photo.id,
@@ -106,7 +115,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
                 });
             }
         }
-
     } catch (e) {
         error = true;
     }

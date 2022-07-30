@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { Input } from "components/Input";
 import { Button } from "components/Button";
 import { Container } from "styles/home";
-import { toastErrorVisible } from "lib/toast";
+import { toastErrorVisible } from "utils/toast";
 
 export default function Home() {
     const router = useRouter();

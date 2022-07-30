@@ -8,7 +8,7 @@ export default async function (
   response: NextApiResponse
 ) {
   if (request.method === "GET") {
-    const search = "lion";
+    const search = "animals";
 
     const { query } = request;
     let card: Card[] = [];

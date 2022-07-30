@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.button`
+type Props = {
+  bgColor: string;
+};
+
+export const Container = styled.button<Props>`
+  cursor: pointer;
+
   height: 2.6rem;
   padding: 0 1.2rem;
+
+  background: ${(props) => props.bgColor};
 
   border: 0;
   border-radius: 0.3rem;

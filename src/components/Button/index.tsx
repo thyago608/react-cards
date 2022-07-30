@@ -7,10 +7,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 export function Button({ text, color = '#4863f7', ...rest }: ButtonProps) {
     return (
-        <Container
-            style={{
-                background: color
-            }}
+        <Container bgColor={color}
             {...rest}>
             {text}
         </Container>
