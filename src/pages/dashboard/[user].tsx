@@ -8,7 +8,7 @@ import { ToastContainer } from "react-toastify";
 import { GetServerSideProps } from "next";
 import { pexels } from "services/pexels";
 import { api } from "services/api";
-import { numbersRandom } from "utils/generateList";
+import { generateRandomNumber, randomNumbersList } from "utils/randomNumber";
 import { PhotoPexelsUpdated } from "types/pexels";
 import { toastErrorVisible } from "utils/toast";
 
@@ -32,7 +32,12 @@ export default function User({ cards, nextPage, error }: DashboardProps) {
                 }
             });
 
-            setItems([...items, data.card]);
+            const cardFormatted = {
+                ...data.card,
+                point: randomNumbersList[items.length + 1]
+            }
+
+            setItems([...items, cardFormatted]);
             setPage(page + 1);
             setFailed(data.error)
             setNumberOfRequests(numberOfRequests + 1);
@@ -50,10 +55,23 @@ export default function User({ cards, nextPage, error }: DashboardProps) {
     }
 
     useEffect(() => {
-        if (failed) {
+        if (failed)
             toastErrorVisible("Ops, houve um problema no servidor");
-        }
-    }, [failed])
+
+    }, [failed]);
+
+    useEffect(() => {
+        generateRandomNumber();
+
+        const itemsFormatted = items.map((item, index) => {
+            return {
+                ...item,
+                point: randomNumbersList[index]
+            }
+        })
+
+        setItems([...itemsFormatted]);
+    }, []);
 
     return (
         <>
@@ -80,7 +98,7 @@ export default function User({ cards, nextPage, error }: DashboardProps) {
                     <Button
                         text="Embaralhar cartas"
                         onClick={handleSortCards}
-                        color="#0821c2"
+                        color="#C62E65"
                     />
                 </ContainerButtons>
             </Container>
@@ -93,7 +111,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     let cards: CardType[] = [];
     let error = false;
-
     const page = Math.floor(Math.random() * 20 + 1);
     let nextPage = page + 1;
 
@@ -104,13 +121,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
             const photosLength = response.photos.length > 0 ? response.photos.length : 0;
 
             if (photosLength > 0) {
-                cards = response.photos.map((photo: PhotoPexelsUpdated) => {
+                cards = response.photos.map((photo: PhotoPexelsUpdated, index) => {
                     return {
                         id: photo.id,
                         title: photo.photographer,
                         image: photo.src.large2x,
                         description: String(photo.alt),
-                        point: Math.floor(Math.random() * 10 + 1)
+                        point: 0
                     }
                 });
             }

@@ -7,7 +7,7 @@ export const Container = styled.div`
   gap: 1rem;
 
   label {
-    color: #d1d1d1;
+    color: #f5f5f5;
     font-size: 1.2rem;
   }
 
@@ -22,6 +22,10 @@ export const Container = styled.div`
 
     color: #d1d1d1;
     font-size: 1.2rem;
+
+    outline: none;
+
+    transition: border-color 0.4s ease-in-out;
 
     &::placeholder {
       color: #d1d1d1;

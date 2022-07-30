@@ -51,6 +51,7 @@ export const ContainerImage = styled.div`
 
 export const Title = styled.h2`
   font-size: 1.3rem;
+  color: #111;
 `;
 
 export const Description = styled.p`

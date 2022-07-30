@@ -36,9 +36,6 @@ export default function Home() {
                         placeholder="Digite o seu nome"
                         value={name}
                         onChange={e => setName(e.target.value)}
-                        style={{
-
-                        }}
                     />
                     <Button
                         type="submit"

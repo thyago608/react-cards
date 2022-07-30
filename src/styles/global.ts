@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+    html{
+        scroll-behavior: smooth;
+    }
+
     *{
         margin:0;
         padding:0;
@@ -13,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body{
-        background: #111;
+        background: #222;
     }
 
     button{

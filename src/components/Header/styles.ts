@@ -1,45 +1,47 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.header`
-  background: #111;
+type Props = {
+  logged: boolean;
+};
 
+export const Container = styled.header<Props>`
   position: sticky;
   top: 0;
 
   z-index: 2;
 
-  @media (min-width: 768px) {
-    margin-top: 1rem;
-  }
+  background: ${(props) => (props.logged ? "#111" : "#222")};
+
+  transition: background-color 0.5s ease-in-out;
 `;
 
-type ContentProps = {
-  hasUser: boolean;
-};
-
-export const Content = styled.div<ContentProps>`
+export const Content = styled.div<Props>`
   max-width: 1000px;
   margin: 0 auto;
 
-  height: 6rem;
+  height: 7rem;
   padding: 0 1rem;
 
   display: flex;
-  justify-content: ${(props) => (props.hasUser ? "space-between" : "center")};
+  justify-content: ${(props) => (props.logged ? "space-between" : "center")};
   align-items: center;
 `;
 
-export const Logo = styled.a`
-  position: relative;
-
-  width: 50px;
-  height: 50px;
-
+export const Logo = styled.div<Props>`
+  ${(props) =>
+    !props.logged &&
+    css`
+      margin-top: 3rem;
+    `}
   cursor: pointer;
 
-  @media (min-width: 768px) {
-    width: 70px;
-    height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    color: #f2f2f2;
+    font-size: 2rem;
   }
 `;
 

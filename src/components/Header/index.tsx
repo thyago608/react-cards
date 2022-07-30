@@ -10,17 +10,24 @@ export function Header() {
     const { user } = query;
 
     return (
-        <Container>
-            <Content hasUser={hasUser}>
-                <Link href="/">
-                    <Logo>
-                        <Image src="/baralho.png" alt="baralho" layout="fill" />
-                    </Logo>
-                </Link>
+        <Container logged={!!user} >
+            <Content logged={!!user} >
+                <Logo logged={!!user}>
+                    <Link href="/">
+                        <div>
+                            <Image src="/baralho.png"
+                                width={60}
+                                height={60}
+                                alt="baralho" />
+                        </div>
+                    </Link>
+                    {!hasUser && <h2>ReactCards</h2>}
+                </Logo>
                 {hasUser &&
                     <User>
                         <strong>{user}</strong>
-                    </User>}
+                    </User>
+                }
             </Content>
         </Container>
     );

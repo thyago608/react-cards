@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { pexels } from "services/pexels";
 import { Card } from "types/card";
+import { randomNumbersList } from "utils/randomNumber";
 import { PhotoPexelsUpdated } from "types/pexels";
 
 export default async function (
@@ -31,7 +32,7 @@ export default async function (
               title: photo.photographer,
               image: photo.src.large2x,
               description: String(photo.alt),
-              point: Math.floor(Math.random() * 10 + 1),
+              point: 0,
             };
           });
 
