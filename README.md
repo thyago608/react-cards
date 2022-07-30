@@ -18,8 +18,7 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 - [API REST](https://github.com/public-apis/public-apis)
 - [Axios](https://axios-http.com/docs/intro)
 - [Pexels-Javascript](https://github.com/pexels/pexels-javascript)
-- [React Toastify]:(https://www.npmjs.com/package/react-toastify)
-
+- [React Toastify](https://www.npmjs.com/package/react-toastify)
 
 # Sobre a aplicação:
 
