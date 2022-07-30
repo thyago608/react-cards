@@ -4,7 +4,7 @@
 
 ## Sobre
 
-O projeto **React Cards**, é uma aplicação desenvolvida para fins de testes. A mesma foi desenvolvido dentro de um período de 2 dias, afim de cumprir o prazo estipulado.
+O projeto **React Cards**, é uma aplicação desenvolvida para fins de testes. A mesma foi desenvolvida dentro de um período de 2 dias, afim de cumprir o prazo estipulado.
 
 ---
 
@@ -23,7 +23,11 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 # Sobre a aplicação:
 
 O desafio proposto solicitava a criação de uma aplicação com duas páginas. 
-Na primeira página, temos um input solicitando que o usuário forneça um "nome". Na segunda página, temos a exibição de 5 cartas de baralho, em que cada carta deve exibir: "nome", "descrição" e uma "imagem". As informações exibidas dentro de cada carta deverá ser obtida através de uma API Rest escolhida pelo desenvolvedor. 
+Na primeira página, temos um input solicitando que o usuário forneça um "nome". Na segunda página, temos a exibição de 5 cartas de baralho, em que cada carta deve exibir: "nome", "descrição" e uma "imagem". As informações exibidas dentro de cada carta deverá ser obtida através de uma API Rest escolhida pelo desenvolvedor.
+Na segunda página existem dois botões: "Puxar mais cartas" e "Embaralhar Cartas". 
+
+O botão de "Puxar mais cartas" permite puxar uma nova carta aleatoriamente, ele poderá ser utilizado apenas 3 vezes.
+O botão de "Embaralhar Cartas" permite embaralhar a ordem das cartas que está sendo visualizando.
 
 # Sobre a API:
 
