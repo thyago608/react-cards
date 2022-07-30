@@ -1,34 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+ <img src="/public/logo.png" alt="react-cards" />
+</p>
 
-## Getting Started
+## Sobre
 
-First, run the development server:
+O projeto **React Cards**, é uma aplicação desenvolvida para fins de testes. A mesma foi desenvolvido dentro de um período de 2 dias, afim de cumprir o prazo estipulado.
+
+---
+
+## Tecnologias utilizadas
+
+O projeto foi desenvolvido com as seguintes tecnologias:
+
+- [NextJS](https://fluxmusic.vercel.app)
+- [Typescript](https://www.typescriptlang.org/)
+- [Styled-Components](https://styled-components.com)
+- [API REST](https://github.com/public-apis/public-apis)
+- [Axios](https://axios-http.com/docs/intro)
+- [Pexels-Javascript](https://github.com/pexels/pexels-javascript)
+- [React Toastify](https://www.npmjs.com/package/react-toastify)
+
+# Sobre a aplicação:
+
+O desafio proposto solicitava a criação de uma aplicação com duas páginas. 
+Na primeira página, temos um input solicitando que o usuário forneça um "nome". Na segunda página, temos a exibição de 5 cartas de baralho, em que cada carta deve exibir: "nome", "descrição" e uma "imagem". As informações exibidas dentro de cada carta deverá ser obtida através de uma API Rest escolhida pelo desenvolvedor. 
+
+# Sobre a API:
+
+Para o teste, foi escolhida a API do Pexels.
+
+# Sobre as Tecnologias Utilizadas:
+
+**NextJS**: Foi escolhido para utilizar o recurso de geração de páginas ao lado do servidor assim garantindo dados para SEO.
+
+**Typescript**: Para realizar a tipagem das informações.
+
+**Styled-components**: Escolha pessoal apenas, mas a aplicação poderia ser desenvolvida com css ou sass.
+
+**Axios**: Cliente HTTP para realizar a requisição na camada do Servidor Next. A motivação de utilizar o recurso de API Route do Next, foi escolhida através da leitura da documentação do Pexels. O Cliente do Pexels utiliza uma API KEY. Logo informações secretas do usuário, não poderiam ficar disponíveis ao lado do Client e sim do Servidor.
+
+**Pexels-Javascript**: O Pexels possui uma client para obter as informações dos servidor do Pexels.
+
+**[React Toastify**: Biblioteca de notificações rápidas. A mesma é utilizada notificar o usuário quando o mesmo não fornecer um "nome", na primeira página.
+
+---
+
+# Como baixar o projeto
 
 ```bash
-npm run dev
-# or
-yarn dev
+    # Clonar repositório
+    $ git clone https://github.com/thyago608/react-cards
+
+    # Entrar no diretório da aplicação
+    $ cd react-cards
+
+    # Baixar as depedências
+    $ npm install
+
+    # Executando a aplicação
+    $ yarn dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Visite
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Desenvolvido por Thyago Ribeiro 👋
