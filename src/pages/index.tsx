@@ -10,15 +10,22 @@ import { toastErrorVisible } from "utils/toast";
 export default function Home() {
     const router = useRouter();
     const [name, setName] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
-    function handleUsernameSubmission(event: FormEvent<HTMLFormElement>) {
+    async function handleUsernameSubmission(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
+        setIsLoading(true);
+
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 2000);
+
         if (name.length > 0) {
+
             router.push(`/dashboard/${name}`);
             return;
         }
-
         toastErrorVisible("Por favor, digite o seu nome!");
     }
 
@@ -40,6 +47,7 @@ export default function Home() {
                     <Button
                         type="submit"
                         text="Ver cartas"
+                        isLoading={isLoading}
                     />
                 </form>
             </Container>

@@ -26,6 +26,9 @@ export function Header() {
                 {hasUser &&
                     <User>
                         <strong>{user}</strong>
+                        <Link href="/">
+                            <a>Sair</a>
+                        </Link>
                     </User>
                 }
             </Content>

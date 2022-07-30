@@ -7,6 +7,7 @@ type Props = {
 export const Container = styled.button<Props>`
   cursor: pointer;
 
+  min-width: 108px;
   height: 2.6rem;
   padding: 0 1.2rem;
 

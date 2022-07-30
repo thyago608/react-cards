@@ -51,4 +51,13 @@ export const User = styled.div`
   text-align: center;
   line-height: 1.4rem;
   color: #d2d2d2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  a {
+    font-weight: bold;
+    color: #4863f7;
+  }
 `;
